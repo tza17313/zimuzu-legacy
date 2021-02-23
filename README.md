@@ -4,9 +4,9 @@
 
 灵感、数据来自BennyThink大佬的分享：https://github.com/tgbot-collection/YYeTsBot
 
-鉴于docker-compose在群晖、unraid中运行比较麻烦，以及我只需要网站部分的功能；
+鉴于docker-compose在群晖、unraid中运行比较麻烦，还有我只需要网站部分的功能；
 
-所以我用node.js将web部分的逻辑分类出来了，页面功能做了精简；仅保留剧名搜索和下载页；
+所以我用node.js将web部分的逻辑分离出来了，页面功能也做了精简；仅保留了搜索页和下载页；
 
 运行原理：zimuzu-legacy负责提供http服务，数据源由单独的mongo提供；
 
@@ -28,7 +28,7 @@ github地址：https://github.com/tza17313/zimuzu-legacy
 
 ### 将数据导入MongoDB中
 
-1、下载MongoDB的历史数据 yyets_mongodb.zip：https://mega.nz/folder/8SQUQDDA#B_pUPBIvCcfc2u4gpJvPyA
+1、下载MongoDB的历史数据 yyets_mongodb.zip：https://github.com/tza17313/zimuzu-legacy/releases
 
 2、上传zip文件至nas系统中，并解压，记住文件地址，群晖的文件管理器右键->属性中可以看到详细的路径，比如：`/volume1/data/yyets/resource.bson`；
 
