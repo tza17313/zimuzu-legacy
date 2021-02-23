@@ -34,7 +34,7 @@ github地址：https://github.com/tza17313/zimuzu-legacy
 
 3、打开nas的ssh功能；
 
-> 以群晖为例：控制面板=>终端机和SNMP=>启用SSH功能，记下端口号;
+> 以群晖为例：控制面板=>终端机和SNMP=>启用SSH功能，记下端口号;  
 > unraid可以直接用网页的终端功能
 
 5、以管理员身份登录：`ssh user@192.168.1.100 -p 7010`，然后输入user对应的密码
@@ -44,7 +44,7 @@ github地址：https://github.com/tza17313/zimuzu-legacy
  > 以上三项请自行替换
  
 6、切换为root身份：`sudo -i`，输入user对应的密码
- > 群晖执行docker命令需要root权限
+ > 群晖执行docker命令需要root权限  
  > unraid不需要这一步
 
 7、获取MongoDB的container id:`docker ps -a`
@@ -78,8 +78,8 @@ docker run -d --name zimuzu-legacy \
 
 3、访问http://192.168.1.100:8080访问网站
 
-> host.docker.internal为docker容器中指向宿主机的域名
-> 27017为mongo映射到宿主机上的端口号
-> mongodb://host.docker.internal:27017也可以替换为mongodb://192.168.1.100:27017这种ip的方式
+> host.docker.internal为docker容器中指向宿主机的域名  
+> 27017为mongo映射到宿主机上的端口号  
+> mongodb://host.docker.internal:27017也可以替换为mongodb://192.168.1.100:27017这种ip的方式  
 
 > 也可以使用图形化界面安装
