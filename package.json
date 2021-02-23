@@ -1,0 +1,14 @@
+{
+  "name": "zimuzu_in_docker",
+  "version": "1.0.0",
+  "description": "人人影视历史资源查询",
+  "author": "Nero <tza17313@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "mongodb": "^3.6.4"
+  }
+}

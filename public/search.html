@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>人人影视下载分享</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="/css/normalize.min.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+</head>
+<body>
+<div class="centered">
+    <form action="search.html">
+        <label>
+            <input class="kw" name="kw" id="kw" placeholder="输入剧名" type="text">
+        </label>
+        <input type="submit" class="btn" value="搜索">
+    </form>
+    <p class="desc">建议输入部分译名，然后从列表中进行选择。比如说想看权力的游戏第四季，那么直接搜索"权力的游戏"就可以了。</p>
+
+    <hr>
+    <ul class="tv-list" id="tv">
+    </ul>
+
+</div>
+</body>
+<script src="js/axios.min.js"></script>
+
+<script>
+  let kwe = document.URL.split('kw=')[1];
+  let kw = decodeURI(kwe).toLowerCase().replace(' ', '');
+  // const axios = require('axios');
+
+  // Make a request for a user with a given ID
+  axios.get('/api/resource?kw=' + kw)
+  .then(function(response) {
+    doSearch(response.data.data);
+  })
+  .catch(function(error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function() {
+    // always executed
+  });
+
+
+  function doSearch(data) {
+    let search = document.getElementById('kw');
+    if (kw !== 'undefined') {
+      search.value = kw;
+    }
+    let div = document.getElementById('tv');
+
+    if (!data || data.length === 0) {
+      return div.innerHTML = `<li>没有搜索到结果 (ノへ￣、)</li>`;
+    }
+
+    for (let i = 0; i < data.length; i++) {
+      let info = data[i];
+      let name = `${info.cnname} ${info.enname} ${info.aliasname}`;
+      let html = `
+        <li>
+        <a href="/resource.html?id=${info.id}">${info.cnname} <em>(${info.enname})</em></a>
+        <p>
+            别名：${info.aliasname}
+        </p>
+        <p>
+            <span class="channel">类型：${info.channel_cn}</span>
+            <span class="area">地区：${info.area}</span>
+        </p>
+        </li>
+      `;
+      let backup = div.innerHTML;
+      div.innerHTML = backup + html;
+
+    }
+
+  }
+
+</script>
+</html>

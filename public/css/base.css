@@ -1,0 +1,60 @@
+body{
+    font-size: 14px;
+}
+
+h1 {
+    font-family: sans-serif;
+    font-size: 4em;
+    color: #3eb5f1;
+    margin: 0;
+}
+
+h2 {
+    font-weight: 300;
+    font-family: sans-serif;
+}
+
+a:link,a:visited{
+    color: #197fe6;
+}
+
+.centered {
+    padding: 30px 15px;
+    max-width: 600px;
+    margin: 0 auto;
+
+}
+
+.kw {
+    width: 300px;
+    height: 30px;
+    margin-right: 10px;
+    text-indent: 0.5em;
+}
+
+.btn {
+    height: 36px;
+    width: 60px;
+}
+
+.desc {
+    color: #999;
+    font-size: 14px;
+}
+
+.tv-list li{
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    list-style-type: disc;
+}
+.tv-list li a{
+    font-size: 18px;
+}
+.tv-list p{
+    padding: 0;
+    margin: 5px 0;
+}
+.tv-list .area{
+    margin-left: 30px;
+}
