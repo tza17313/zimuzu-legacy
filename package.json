@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "express": "4.17.1",
+    "feed": "^4.2.2",
     "mongodb": "^3.6.4"
   }
 }
