@@ -65,15 +65,11 @@ github地址：https://github.com/tza17313/zimuzu-legacy
 
 ### 运行zimuzu-legacy
 
-1、获取最新版的镜像：`docker push tza17313/zimuzu-legacy:latest`  
+1、获取最新版的镜像：`docker pull tza17313/zimuzu-legacy:latest`  
 
 2、运行容器：
 ```bash
-docker run -d --name zimuzu-legacy \ 
-    -p 8080:8080 \ 
-    -e MONGO_DB_URL=mongodb://host.docker.internal:27017 \ 
-    -e MONGO_DB_NAME=zimuzu \ 
-    tza17313/zimuzu-legacy
+docker run -d --name zimuzu-legacy  -p 8080:8080  -e MONGO_DB_URL=mongodb://host.docker.internal:27017 -e MONGO_DB_NAME=zimuzu tza17313/zimuzu-legacy
 ```
 
 3、访问http://192.168.1.100:8080访问网站
