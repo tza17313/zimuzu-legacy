@@ -56,9 +56,10 @@ app.get('/rss/:id', (req, res) => {
                         let file = ep.files[j]
                         if (~~file.way === 2) {
                             feed.addItem({
-                                id: ep.itemid,
                                 guid: ep.itemid + '_' + j,
                                 title: ep.name,
+                                link: file.address,
+                                description: ep.name,
                                 enclosure: {
                                     title: ep.name,
                                     length:ep.size,
