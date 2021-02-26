@@ -70,7 +70,7 @@ app.get('/rss/:id', (req, res) => {
                                 guid: ep.itemid + '_' + j,
                                 title: ep.name,
                                 link: file.address,
-                                description: ep.name,
+                                description: `season_num:${season.season_num}  || formats:enum(${season.formats})`,
                                 // enclosure: {
                                 //     title: ep.name,
                                 //     length: ep.size,

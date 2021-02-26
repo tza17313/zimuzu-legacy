@@ -1,6 +1,6 @@
 # 人人影视历史资源查询
 
-支持任意可运行docker的平台；
+支持任意可运行docker的平台，保留YYeTsBot的web功能，增加rss订阅下载功能(方便批量下载)；
 
 灵感、数据来自BennyThink大佬的分享：https://github.com/tgbot-collection/YYeTsBot
 
@@ -80,3 +80,14 @@ docker run -d --name zimuzu-legacy  -p 8080:8080  -e MONGO_DB_URL=mongodb://host
 > RSS_HOST用于群晖rss下载用
 
 > 也可以使用图形化界面安装
+
+### rss订阅
+
+根据资源id、格式、季数返回磁力下载列表；
+
+#### 参数说明
+ > 路由地址：/rss/:id  
+ > 参数f：需要下载的资源类型，比如：APP,HDTV,MP4,WEB-1080P,WEB-720P,BD-1080P,BD-720P,4K-2160P  
+ > 参数s：第几季，比如：1、2、3
+
+举个栗子：http://192.168.1.100:8080/rss/39037?f=MP4&s=2
