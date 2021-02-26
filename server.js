@@ -64,14 +64,14 @@ app.get('/rss/:id', (req, res) => {
                             feed.addItem({
                                 guid: ep.itemid + '_' + j,
                                 title: ep.name,
-                                link: null,
+                                link: file.address,
                                 description: ep.name,
-                                enclosure: {
-                                    title: ep.name,
-                                    length: ep.size,
-                                    url: `${host}/enclosure/${req.params.id}_${season.season_num}_${f}_${ep.episode}_${j}`,
-                                    type: 'application/x-bittorrent'
-                                }
+                                // enclosure: {
+                                //     title: ep.name,
+                                //     length: ep.size,
+                                //     url: `${host}/enclosure/${req.params.id}_${season.season_num}_${f}_${ep.episode}_${j}`,
+                                //     type: 'application/x-bittorrent'
+                                // }
                             })
                             break
                         }
