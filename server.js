@@ -34,8 +34,13 @@ app.get('/rss/:id', (req, res) => {
         const info = result.data.info
         const list = result.data.list
 
+        let subTitle=""
+        if(!isNaN(s)){
+            subTitle=`/第${s}季`
+        }
+
         let feed = new Feed({
-            title: info.cnname + ' / ' + info.enname,
+            title: info.cnname + subTitle + "/" + f,
             link: url,
             generator: 'zimuzu-legacy',
             docs: '/rss/:id?s=1&f=MP4;  id为剧id，s为第几季，f为下载格式；  s为数字，比如1、2、3、4、5；  f可以为APP,HDTV,MP4,WEB-1080P,WEB-720P,BD-1080P,BD-720P,4K-2160P',

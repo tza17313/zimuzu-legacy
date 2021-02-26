@@ -189,6 +189,7 @@
                 <div class="desc">人人影视历史资源</div>
             </div>
             <div class="btn-group" role="group" aria-label="...">
+                <a class="btn btn-success" style="margin-right: 10px;" @click="copyRss"><i class="fa fa-copy"></i>复制rss地址</a>
 
                 <a class="btn btn-danger btn-toggle-view" @click="expanedAll"><i class="fa fa-th-list"></i>切换为平铺视图</a>
             </div>
@@ -611,6 +612,9 @@
                         this.renderItemChildren();
                         this.listRendered = false;
                     }
+                },
+                copyRss:function copyRss(){
+                    new_copy(`${location.origin}/rss/${this.info.id}?s=1&f=MP4`)
                 },
                 renderItemChildren: function renderItemChildren() {
                     var list = this.list;
