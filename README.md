@@ -69,7 +69,7 @@ github地址：https://github.com/tza17313/zimuzu-legacy
 
 2、运行容器：
 ```bash
-docker run -d --name zimuzu-legacy  -p 8080:8080  -e MONGO_DB_URL=mongodb://host.docker.internal:27017 -e MONGO_DB_NAME=zimuzu tza17313/zimuzu-legacy
+docker run -d --name zimuzu-legacy  -p 8080:8080  -e MONGO_DB_URL=mongodb://host.docker.internal:27017 -e RSS_HOST=http://192.168.1.100:8080 -e MONGO_DB_NAME=zimuzu tza17313/zimuzu-legacy
 ```
 
 3、访问http://192.168.1.100:8080访问网站
@@ -77,5 +77,6 @@ docker run -d --name zimuzu-legacy  -p 8080:8080  -e MONGO_DB_URL=mongodb://host
 > host.docker.internal为docker容器中指向宿主机的域名  
 > 27017为mongo映射到宿主机上的端口号  
 > mongodb://host.docker.internal:27017也可以替换为mongodb://192.168.1.100:27017这种ip的方式  
+> RSS_HOST用于群晖rss下载用
 
 > 也可以使用图形化界面安装

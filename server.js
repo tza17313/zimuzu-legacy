@@ -8,7 +8,12 @@ const mongo = require('./utils/db');
 const PORT = 8080;
 const HOST = '0.0.0.0';
 
-const {MONGO_DB_URL = 'mongodb://127.0.0.1:27017', MONGO_DB_NAME = 'zimuzu', MONGO_DB_COL_NAME} = process.env;
+const {
+    MONGO_DB_URL = 'mongodb://127.0.0.1:27017',
+    MONGO_DB_NAME = 'zimuzu',
+    MONGO_DB_COL_NAME,
+    RSS_HOST = 'http://127.0.0.1:8080'
+} = process.env;
 console.log('process.env:', process.env);
 
 // App
@@ -21,7 +26,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/rss/:id', (req, res) => {
-    const host = req.protocol + '://' + req.headers.host
+    const host = RSS_HOST
     const url = host + req.url
     findOneById(req.params.id).then((result) => {
         const {s, f = 'MP4'} = req.query
@@ -198,7 +203,7 @@ app.get('/api/resource', (req, res) => {
 
 mongo.init(MONGO_DB_URL, MONGO_DB_NAME, MONGO_DB_COL_NAME).then(() => {
     app.listen(PORT, HOST);
-    console.log(`Running on http://${HOST}:${PORT}`);
+    console.log(`Running on ${RSS_HOST}`);
 }).catch((err) => {
     console.log('MongoDB 连接错误', err);
 });
